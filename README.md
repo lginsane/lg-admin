@@ -1,6 +1,6 @@
 ## 介绍
 
-lg-admin 为个人统一管理后台系统，用于管理个人博客，工作项目记录，个人收藏，谷歌快捷入口设置
+lg-admin 为个人统一管理后台系统，采用技术栈Vue3+Vite2+Typescript+naive+Pinia+vueuse
 
 ## 功能计划
 
