@@ -1,0 +1,24 @@
+$primaryColor: #2d8cf0;
+$primaryColorHover: #57a3f3;
+
+// 顶部高度
+$LayoutHeaderHeight: 80px;
+$MobileLayoutHeaderHeight: 50px;
+
+// 底部高度
+$LayoutFooterHeight: 100px;
+
+// 中间内容高度
+$LayoutMainHeight: calc(100% - $LayoutHeaderHeight);
+$MobileLayoutMainHeight: calc(100% - $MobileLayoutHeaderHeight);
+
+// 页面高度
+$LayoutPageHeight: calc(100% - $LayoutFooterHeight);
+
+// 面包屑高度
+$BreadcrumbHeight:50px;
+$MobileBreadcrumbHeight: 0px;
+
+// banner高度
+$BannerHeight: 380px;
+$MobileBannerHeight: 6rem;

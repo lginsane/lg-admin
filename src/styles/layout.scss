@@ -1,0 +1,35 @@
+.global-layout {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+
+  .n-layout-scroll-container {
+    overflow-y: auto;
+  }
+
+  .main-layout {
+    width: 100%;
+    height: calc(100% - $LayoutHeaderHeight);
+  }
+}
+
+.global-header {
+  height: $LayoutHeaderHeight;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.global-content {
+  height: 100%;
+  background-color: #f7f7f7;
+  overflow: auto;
+}
+
+// 版心
+.area-width {
+  width: 1220px;
+  margin: 0 auto;
+}
