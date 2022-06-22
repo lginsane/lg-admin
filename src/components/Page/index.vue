@@ -19,7 +19,7 @@
   <div class="page-wrapper">
     <n-page-header>
       <template v-if="!hideBreadcrumb" #header>
-        <div ref="breadcrumb" class="breadcrumb-wrapper area-width">
+        <div ref="breadcrumb" class="breadcrumb-wrapper">
           <Breadcrumb />
         </div>
       </template>
@@ -30,7 +30,7 @@
           <n-card
             v-if="option.isCard"
             :key="'card' + index"
-            class="card-wrapper area-width"
+            class="card-wrapper"
             :class="option.class"
             :bordered="option.bordered || false"
             :title="option.title"
@@ -40,12 +40,12 @@
             </template>
             <slot :name="option.slotName"></slot>
           </n-card>
-          <div v-else :key="index" class="grid-wrapper area-width">
+          <div v-else :key="index" class="grid-wrapper">
             <slot :name="option.slotName"></slot>
           </div>
         </template>
       </template>
-      <n-card v-else class="area-width">
+      <n-card v-else :bordered="false">
         <slot></slot>
       </n-card>
     </div>
@@ -54,29 +54,26 @@
 
 <style lang="scss">
   .page-wrapper {
+    width: 100%;
     height: $LayoutPageHeight;
     box-sizing: border-box;
     overflow: auto;
     .n-page-header-header {
       margin-bottom: 0;
-      background-color: #f5fafd;
+      background-color: #fff;
+      padding: 0 15px;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
     }
     .breadcrumb-wrapper {
       height: $BreadcrumbHeight;
       display: flex;
       align-items: center;
     }
-    .banner-wrapper {
-      margin-bottom: 15px;
-      width: 100%;
-      img {
-        width: 100%;
-      }
-    }
     .page-content {
       height: calc(100% - $BreadcrumbHeight);
       box-sizing: border-box;
       overflow: auto;
+      padding: 15px;
       &.page-height {
         height: 100%;
       }

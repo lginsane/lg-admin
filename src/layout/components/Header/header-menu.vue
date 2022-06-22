@@ -92,6 +92,7 @@
 <style lang="scss">
   .header-menu {
     margin: 0 20px;
+    flex: 1;
     .n-menu {
       font-size: 16px;
       font-weight: bold;

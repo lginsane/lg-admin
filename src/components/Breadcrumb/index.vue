@@ -30,7 +30,7 @@
     <template v-for="routeItem in breadcrumbList" :key="routeItem.name">
       <n-breadcrumb-item v-if="routeItem.meta.title">
         <span class="link-text" @click="dropdownSelect(routeItem.name)">
-          <component :is="routeItem.meta.icon" v-if="routeItem.meta.icon" />
+          <!-- <component :is="routeItem.meta.icon" v-if="routeItem.meta.icon" /> -->
           {{ routeItem.meta.title }}
         </span>
       </n-breadcrumb-item>
@@ -40,6 +40,6 @@
 
 <style lang="scss">
   .n-breadcrumb .n-breadcrumb-item {
-    font-size: 16px;
+    // font-size: 14px;
   }
 </style>

@@ -13,10 +13,10 @@ $LayoutMainHeight: calc(100% - $LayoutHeaderHeight);
 $MobileLayoutMainHeight: calc(100% - $MobileLayoutHeaderHeight);
 
 // 页面高度
-$LayoutPageHeight: calc(100% - $LayoutFooterHeight);
+$LayoutPageHeight: 100%;
 
 // 面包屑高度
-$BreadcrumbHeight:50px;
+$BreadcrumbHeight: 50px;
 $MobileBreadcrumbHeight: 0px;
 
 // banner高度

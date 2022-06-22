@@ -23,11 +23,11 @@
     selectedKeys.value = nActiveMenu ? (nActiveMenu as string) : (currentRoute.name as string)
   }
   // 默认配置
-  const defaultMenuConfig: MenuConfig = {
+  const defaultMenuConfig: MenuConfig = reactive({
     inverted: false,
     mode: 'vertical',
     collapsed: false
-  }
+  })
   // 获取当前打开的子菜单
   const matched = currentRoute.matched
   const getOpenKeys: any[] = matched && matched.length ? matched.map(item => item.name) : []
@@ -72,10 +72,24 @@
     }
     return subRouteChildren.includes(key)
   }
+
+  const menuWidth = computed(() => {
+    return defaultMenuConfig.collapsed ? 64 : 200
+  })
 </script>
 
 <template>
-  <n-layout-sider class="global-menu">
+  <n-layout-sider
+    :width="menuWidth"
+    :collapsed="defaultMenuConfig.collapsed"
+    :collapsed-width="64"
+    class="global-menu"
+    placement="left"
+    bordered
+    show-trigger
+    @collapse="defaultMenuConfig.collapsed = true"
+    @expand="defaultMenuConfig.collapsed = false"
+  >
     <n-menu
       :value="activeMenu"
       :expanded-keys="state.openKeys"
@@ -95,7 +109,7 @@
 <style lang="scss">
   .global-menu {
     .n-menu {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
     }
   }

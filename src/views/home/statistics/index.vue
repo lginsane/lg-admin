@@ -1,1 +1,1 @@
-<template><div>统计</div></template>
+<template><page>统计</page></template>
