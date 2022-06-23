@@ -2,7 +2,7 @@ import { App } from 'vue'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import { dynamicRouters } from './modules/index'
 import { createRouterGuards } from './router-guard'
-import { Layout } from '@/layout'
+import { BlankLayout } from '@/layout'
 import { PageEnum } from '@/enums/pageEnum'
 
 // 不同模块 ./modules/ 引入
@@ -19,10 +19,9 @@ export const constantRouter: RouteRecordRaw[] = [
   {
     path: '/:path(.*)*',
     name: 'ErrorPage',
-    component: Layout,
+    component: BlankLayout,
     meta: {
-      title: 'ErrorPage',
-      hideBreadcrumb: true
+      title: 'ErrorPage'
     },
     children: [
       {
@@ -30,8 +29,7 @@ export const constantRouter: RouteRecordRaw[] = [
         name: 'ErrorPageSon',
         component: () => import('@/views/exception/404.vue'),
         meta: {
-          title: 'ErrorPage',
-          hideBreadcrumb: true
+          title: 'ErrorPage'
         }
       }
     ]
