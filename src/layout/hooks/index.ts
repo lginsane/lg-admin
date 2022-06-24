@@ -1,4 +1,4 @@
-import { useLayoutStore } from '@/store/layout'
+import { useLayoutStore } from '@/store/modules/layout'
 import { PageEnum } from '@/enums/pageEnum'
 import { ref, Ref } from 'vue'
 import { useEventListener } from '@vueuse/core'
@@ -40,7 +40,6 @@ export function generatorOneLevelMenu(routerMap: Array<any>) {
  * 递归组装菜单格式
  */
 export function generatorMenu(routerMap: Array<any>) {
-  console.log(routerMap)
   return routerMap.map(item => {
     const isRoot = isRootRouter(item)
     const info = isRoot ? item.children[0] : item

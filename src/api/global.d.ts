@@ -2,15 +2,14 @@
 export interface Result<T = any> {
   code: number
   type?: 'success' | 'error' | 'warning'
-  message?: string
-  msg?: string
+  message: string
   data: T
 }
 
 // 分页
 export interface PageSize {
-  pageNum: number
-  limit: number
+  page: number
+  pageSize: number
 }
 // 表格/列表参数
 export type ParamsType<T> = T & PageSize

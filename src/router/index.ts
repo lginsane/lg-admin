@@ -15,6 +15,14 @@ export const constantRouter: RouteRecordRaw[] = [
       title: 'Root'
     }
   },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login/index.vue'),
+    meta: {
+      title: '登录'
+    }
+  },
   ...dynamicRouters,
   {
     path: '/:path(.*)*',

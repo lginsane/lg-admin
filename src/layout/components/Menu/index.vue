@@ -2,6 +2,7 @@
   import { MenuConfig } from '@/layout/types/index'
   import { generatorMenu, filterRouter } from '@/layout/hooks/index'
   import { constantRouter } from '@/router/index'
+  import { useWhiteName } from '@/hooks/index'
   // 当前路由
   const currentRoute = useRoute()
   const router = useRouter()
@@ -37,7 +38,8 @@
   watch(
     () => currentRoute.fullPath,
     () => {
-      updateMenu()
+      const { isWhiteName } = useWhiteName(currentRoute.name as string)
+      if (!isWhiteName) updateMenu()
     }
   )
   onMounted(() => {
