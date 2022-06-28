@@ -1,19 +1,6 @@
 <script lang="ts" setup>
-  interface CardOptionItem {
-    bordered?: boolean
-    title?: string
-    slotName?: string
-    isCard?: boolean
-    class?: string
-  }
-  interface Props {
-    hideBreadcrumb?: boolean
-    cardOption?: CardOptionItem[]
-  }
-  withDefaults(defineProps<Props>(), {
-    hideBreadcrumb: false,
-    cardOption: () => []
-  })
+  import { basicProps } from './props'
+  defineProps({ ...basicProps })
 </script>
 <template>
   <div class="page-wrapper">
