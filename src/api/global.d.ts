@@ -11,12 +11,3 @@ export interface PageSize {
   page: number
   pageSize: number
 }
-// 表格/列表参数
-export type ParamsType<T> = T & PageSize
-
-// 请求结果值
-export type DataListType = Result<{
-  list: any[]
-  total: number
-  [P: string]: any
-}>
