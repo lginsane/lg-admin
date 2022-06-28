@@ -4,8 +4,52 @@
  */
 
 import type { App } from 'vue'
+import {
+  create,
+  NInput,
+  NInputGroup,
+  NInputNumber,
+  NSelect,
+  NTreeSelect,
+  NRadioGroup,
+  NCheckbox,
+  NCheckboxGroup,
+  NAutoComplete,
+  NCascader,
+  NDatePicker,
+  NTimePicker,
+  NSwitch,
+  NUpload,
+  NSlider,
+  NRate
+} from 'naive-ui'
 import PageWrapper from '@/components/Page/index.vue'
 
 export function setupCustomComponents(app: App<Element>) {
-  app.component('page-wrapper', PageWrapper)
+  app.component('PageWrapper', PageWrapper)
+}
+
+const naive = create({
+  components: [
+    NInput,
+    NInputGroup,
+    NInputNumber,
+    NSelect,
+    NTreeSelect,
+    NRadioGroup,
+    NCheckbox,
+    NCheckboxGroup,
+    NAutoComplete,
+    NCascader,
+    NDatePicker,
+    NTimePicker,
+    NSwitch,
+    NUpload,
+    NSlider,
+    NRate
+  ]
+})
+
+export function setupNaive(app: App<Element>) {
+  app.use(naive)
 }

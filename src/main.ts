@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { setupRouter } from '@/router'
-import { setupCustomComponents } from '@/components/index'
+import { setupCustomComponents, setupNaive } from '@/components/index'
 import { setupStore } from '@/store/index'
 import Application from '@/components/Application/index.vue'
 
@@ -10,6 +10,8 @@ import '@/styles/index.scss'
 async function bootstrap() {
   const application = createApp(Application)
   const app = createApp(App)
+  // 注册Naive组件
+  setupNaive(app)
   // 注册全局自定义组件
   setupCustomComponents(app)
   // 挂载状态管理
