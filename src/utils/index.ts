@@ -110,3 +110,23 @@ export function lighten(color: string, amount: number) {
     amount
   )}${addLight(color.substring(4, 6), amount)}`
 }
+
+/**
+ * 根据 value 获取 label
+ * @param value any
+ * @param options any[]
+ * @param props { label: string; value: any }
+ * @returns string
+ */
+export function valueConversionLabel(
+  value: any,
+  options: any[],
+  props?: { label: string; value: any }
+) {
+  const cProps = props || {
+    label: 'label',
+    value: 'value'
+  }
+  const obj = options.find(e => e[cProps.value] === value)
+  return obj ? obj[cProps.label] : ''
+}
