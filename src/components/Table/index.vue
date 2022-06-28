@@ -20,6 +20,12 @@
   // 表头
   const getColumns = computed(() => {
     const columns = unref(props).columns as DataTableColumn[]
+    const actionColumn = unref(props).actionColumn
+    if (actionColumn) {
+      columns.push(actionColumn)
+    }
+    console.log('columns')
+    console.log(columns)
     if (!columns) return []
     return columns.map(item => {
       return { ...item, align: item.align || 'center' }
@@ -131,3 +137,11 @@
     </div>
   </div>
 </template>
+
+<style lang="scss">
+  .table-container {
+    .operation-wrapper {
+      margin-bottom: 15px;
+    }
+  }
+</style>
