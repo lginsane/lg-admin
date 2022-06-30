@@ -1,7 +1,43 @@
 import { SchemaItem } from '@/components/SearchTable/types/index'
 import { CardOptionItem } from '@/components/Page/types/index'
-import { DataTableColumn } from 'naive-ui'
+import { DataTableColumn, NTag } from 'naive-ui'
+import { valueConversionLabel } from '@/utils/index'
 
+// 状态
+export const statusOptions = [
+  {
+    label: '启用',
+    value: 1,
+    type: 'success'
+  },
+  {
+    label: '禁用',
+    value: 0,
+    type: 'error'
+  }
+]
+// 性别
+export const sexOptions = [
+  {
+    label: '男',
+    value: 1
+  },
+  {
+    label: '女',
+    value: 0
+  }
+]
+// 权限
+export const permissionOptions = [
+  {
+    label: '普通人员',
+    value: 1
+  },
+  {
+    label: '管理员',
+    value: 0
+  }
+]
 // page cardOption
 export const pageCardOption: CardOptionItem[] = [
   {
@@ -28,16 +64,7 @@ export const SearchSchemas: SchemaItem[] = [
     component: 'NSelect',
     componentProps: {
       placeholder: '请选用户状态',
-      options: [
-        {
-          label: '启用',
-          value: 1
-        },
-        {
-          label: '禁用',
-          value: 0
-        }
-      ]
+      options: statusOptions
     }
   },
   {
@@ -46,16 +73,7 @@ export const SearchSchemas: SchemaItem[] = [
     component: 'NSelect',
     componentProps: {
       placeholder: '请选用户权限',
-      options: [
-        {
-          label: '普通人员',
-          value: 1
-        },
-        {
-          label: '管理员',
-          value: 0
-        }
-      ]
+      options: permissionOptions
     }
   }
 ]
@@ -73,27 +91,28 @@ export const tableColumns: DataTableColumn[] = [
     title: '性别',
     key: 'sex',
     render: row => {
-      const sexOptions = {
-        0: '女',
-        1: '男'
-      }
-      return sexOptions[row.sex as number]
+      return valueConversionLabel(row.sex, sexOptions)
     }
   },
   {
     title: '状态',
     key: 'status',
     render: row => {
-      const statusOptions = {
-        0: '禁用',
-        1: '启用'
-      }
-      return statusOptions[row.status as number]
+      return h(
+        NTag as any,
+        { type: valueConversionLabel(row.status, statusOptions, { label: 'type' }) },
+        () => h('span', valueConversionLabel(row.status, statusOptions))
+      )
     }
   },
   {
     title: '权限',
-    key: 'permission'
+    key: 'permission',
+    render: row => {
+      return h(NTag as any, () =>
+        h('span', valueConversionLabel(row.permission, permissionOptions))
+      )
+    }
   },
   {
     title: '创建时间',
