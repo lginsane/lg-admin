@@ -50,7 +50,6 @@ instance.interceptors.request.use(
     }
     removePendingRequest(config) // 检查是否存在重复请求，若存在则取消已发的请求
     addPendingRequest(config) // 把当前请求添加到pendingRequest对象中
-    console.log(config)
     return config
   },
   error => {

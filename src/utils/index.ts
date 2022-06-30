@@ -121,12 +121,15 @@ export function lighten(color: string, amount: number) {
 export function valueConversionLabel(
   value: any,
   options: any[],
-  props?: { label: string; value: any }
+  props?: { label?: string; value?: any }
 ) {
-  const cProps = props || {
-    label: 'label',
-    value: 'value'
-  }
+  const cProps = Object.assign(
+    {
+      label: 'label',
+      value: 'value'
+    },
+    props
+  )
   const obj = options.find(e => e[cProps.value] === value)
   return obj ? obj[cProps.label] : ''
 }
