@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { Recordable, Nullable } from '#/global'
-  import { DataTableInst, DataTableColumn, NDataTable } from 'naive-ui'
+  import { DataTableInst, NDataTable } from 'naive-ui'
   import { ResultTable, StateProp } from './types/index'
   import { basicProps } from './props'
 
@@ -19,16 +19,18 @@
   })
   // 表头
   const getColumns = computed(() => {
-    const columns = unref(props).columns as DataTableColumn[]
-    const actionColumn = unref(props).actionColumn
-    // 合并表头
-    if (actionColumn && columns.indexOf(actionColumn) < 0) {
-      columns.push(actionColumn)
-    }
+    const columns = unref(props).columns
 
     if (!columns || !columns.length) {
       ;(window as any).$message.info('columns 不存在')
       return []
+    }
+    // 合并表头
+    const { actionColumn } = unref(props)
+    if (actionColumn && !columns.find(col => col.key === 'action')) {
+      columns.push({
+        ...(actionColumn as any)
+      })
     }
     return columns.map(item => {
       return { ...item, align: item.align || 'center' }
