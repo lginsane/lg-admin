@@ -21,12 +21,15 @@
   const getColumns = computed(() => {
     const columns = unref(props).columns as DataTableColumn[]
     const actionColumn = unref(props).actionColumn
-    if (actionColumn) {
+    // 合并表头
+    if (actionColumn && columns.indexOf(actionColumn) < 0) {
       columns.push(actionColumn)
     }
-    console.log('columns')
-    console.log(columns)
-    if (!columns) return []
+
+    if (!columns || !columns.length) {
+      ;(window as any).$message.info('columns 不存在')
+      return []
+    }
     return columns.map(item => {
       return { ...item, align: item.align || 'center' }
     })

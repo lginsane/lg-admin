@@ -3,15 +3,17 @@
   import { actionProps, actionItem } from '../types/actions'
   const props = defineProps({ ...actionProps })
   const getActions = computed(() => {
-    return unref(props).actions.map(action => {
-      if (isFunction(action.isShow)) {
-        action.isShow = action.isShow()
-      }
-      return {
-        ...action,
-        isShow: action.isShow ?? true
-      }
-    })
+    return unref(props)
+      .actions.map(action => {
+        if (isFunction(action.isShow)) {
+          action.isShow = action.isShow()
+        }
+        return {
+          ...action,
+          isShow: action.isShow ?? true
+        }
+      })
+      .filter(action => action.isShow)
   })
   function handlePositiveClick(action: actionItem) {
     console.log('已确定')
@@ -30,6 +32,7 @@
       <n-button v-if="!action.isConfirm" v-bind="action">{{ action.label }}</n-button>
       <n-popconfirm
         v-else
+        :show-icon="false"
         @positive-click="handlePositiveClick(action)"
         @negative-click="handleNegativeClick(action)"
       >

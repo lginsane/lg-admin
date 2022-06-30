@@ -12,7 +12,7 @@ export const basicProps = {
   },
   schemas: {
     type: Array as PropType<SchemaItem[]>,
-    default: () => {}
+    default: () => []
   },
   // 显示确认按钮
   showSubmitButton: {
