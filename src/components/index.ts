@@ -24,9 +24,13 @@ import {
   NRate
 } from 'naive-ui'
 import PageWrapper from '@/components/Page/index.vue'
+// Markdown
+import MdEditor from 'md-editor-v3'
+import 'md-editor-v3/lib/style.css'
 
 export function setupCustomComponents(app: App<Element>) {
   app.component('PageWrapper', PageWrapper)
+  app.component('MdEditor', MdEditor)
 }
 
 const naive = create({
