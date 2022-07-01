@@ -1,6 +1,13 @@
 import { Layout } from '@/layout'
 import { renderIcon } from '@/hooks/icon'
-import { BookOutline, Pricetags, DocumentTextSharp, Grid, People } from '@vicons/ionicons5'
+import {
+  BookOutline,
+  Pricetags,
+  DocumentTextSharp,
+  Grid,
+  People,
+  AccessibilitySharp
+} from '@vicons/ionicons5'
 export const BlogRouters = [
   {
     path: '/blog',
@@ -12,6 +19,15 @@ export const BlogRouters = [
       icon: renderIcon(BookOutline)
     },
     children: [
+      {
+        path: '/blog/mine',
+        name: 'Mine',
+        component: () => import('@/views/blog/mine/index.vue'),
+        meta: {
+          title: '个人资料',
+          icon: renderIcon(AccessibilitySharp)
+        }
+      },
       {
         path: '/blog/user',
         name: 'User',
