@@ -16,6 +16,14 @@ export const constantRouter: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/redirect',
+    name: 'Redirect',
+    component: () => import('@/views/redirect/index.vue'),
+    meta: {
+      title: ''
+    }
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('@/views/login/index.vue'),

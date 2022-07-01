@@ -12,7 +12,7 @@ export function useHasMobile() {
 }
 
 export function useWhiteName(name: RouteRecordName) {
-  const whiteNameList = [PageEnum.BASE_LOGIN_NAME, PageEnum.ERROR_PAGE_NAME]
+  const whiteNameList = [PageEnum.BASE_LOGIN_NAME, PageEnum.ERROR_PAGE_NAME, PageEnum.REDIRECT_NAME]
   const isWhiteName: boolean = whiteNameList.includes(name as PageEnum)
   return {
     isWhiteName
