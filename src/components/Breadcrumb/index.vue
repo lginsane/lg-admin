@@ -21,7 +21,7 @@
     })
   }
   const breadcrumbList = computed(() => {
-    return generator(route.matched)
+    return generator(route.matched).filter(item => item.meta.breadcrumb !== false)
   })
 </script>
 
@@ -37,9 +37,3 @@
     </template>
   </n-breadcrumb>
 </template>
-
-<style lang="scss">
-  .n-breadcrumb .n-breadcrumb-item {
-    // font-size: 14px;
-  }
-</style>
