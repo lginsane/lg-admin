@@ -2,7 +2,7 @@
   import { isUrl } from '@/utils/is'
   import { MineType } from '@/api/blog/mine/model'
   import { AddCircleSharp, RemoveCircle } from '@vicons/ionicons5'
-  const formModel = reactive<MineType>({
+  const formModel = ref<MineType>({
     name: '',
     signature: '',
     avatar: '',
@@ -30,6 +30,11 @@
       required: true,
       message: '请上传头像',
       trigger: ['change', 'blur']
+    },
+    content: {
+      required: true,
+      trigger: ['blur', 'input'],
+      message: '请输入内容'
     }
   }
   const urlValidator = (_, value: string) => {
@@ -42,7 +47,7 @@
     }
   }
   const mdChange = val => {
-    formModel.content = val
+    formModel.value.content = val
   }
   const onUploadImg = async (files, callback) => {
     const res = await Promise.all(
@@ -66,7 +71,7 @@
   }
   // 新增链接
   function onAddLink(index: number) {
-    formModel.links?.splice(index, 0, {
+    formModel.value.links.splice(index, 0, {
       title: '',
       url: '',
       icon: ''
@@ -74,7 +79,7 @@
   }
   // 删除链接
   function onDeleteLink(index: number) {
-    formModel.links?.splice(index, 1)
+    formModel.value.links.splice(index, 1)
   }
 </script>
 <template>
