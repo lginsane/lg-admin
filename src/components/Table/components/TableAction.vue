@@ -29,9 +29,12 @@
 <template>
   <div class="tableAction">
     <template v-for="(action, index) in getActions" :key="`${index}-${action.label}`">
-      <n-button v-if="!action.isConfirm" v-bind="action">{{ action.label }}</n-button>
+      <n-button v-if="!action.isConfirm" v-bind="action" :key="index + 'btn'">{{
+        action.label
+      }}</n-button>
       <n-popconfirm
         v-else
+        :key="index + 'pop'"
         :show-icon="false"
         @positive-click="handlePositiveClick(action)"
         @negative-click="handleNegativeClick(action)"

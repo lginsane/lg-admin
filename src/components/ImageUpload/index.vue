@@ -1,10 +1,24 @@
 <script lang="ts" setup>
+  const props = defineProps<{
+    value: string
+  }>()
+  watch(
+    () => props.value,
+    val => {
+      url.value = val
+    }
+  )
+  const emit = defineEmits(['update:value'])
   // 图片地址
-  const url = ref('')
+  const url = ref(props.value)
   // 输入框提示语
   const placeholder = ref('请输入图片链接')
   // 上传状态 0: 未上传 1: 上传中 2: 上传成功 3: 上传失败
   const uploadStatus = ref(0)
+  function updateSuccess() {
+    emit('update:value', url.value)
+  }
+  console.log(updateSuccess)
 </script>
 <template>
   <div class="upload-container">
