@@ -1,11 +1,13 @@
+import { Nullable } from '#/global'
 export interface ArticleItem {
   id?: number // ID
   title: string // 标题
-  sortNo: number // 顺序
-  type: number // 分类
-  typeName: string // 分类名称
-  tags: string // 标签
-  tagsName: string // 标签名称
+  desc: string // 描述
+  sortNo: Nullable<string> // 顺序
+  type: Nullable<number> // 分类
+  typeName?: string // 分类名称
+  tags: number[] // 标签
+  tagsName?: string[] // 标签名称
   coverImg: string // 封面
   status: number // 状态 0: 草稿 1: 已发布
   content: string // 内容
