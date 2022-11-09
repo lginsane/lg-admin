@@ -50,29 +50,29 @@ export const pageCardOption: CardOptionItem[] = [
 // search schemas
 export const SearchSchemas: SchemaItem[] = [
   {
-    label: '用户名称',
+    label: '账户名称',
     path: 'name',
     component: 'NInput',
     defaultValue: '',
     componentProps: {
-      placeholder: '请输入用户名称、昵称'
+      placeholder: '请输入账户名称、昵称'
     }
   },
   {
-    label: '用户状态',
+    label: '账户状态',
     path: 'status',
     component: 'NSelect',
     componentProps: {
-      placeholder: '请选用户状态',
+      placeholder: '请选账户状态',
       options: statusOptions
     }
   },
   {
-    label: '用户权限',
+    label: '账户权限',
     path: 'permission',
     component: 'NSelect',
     componentProps: {
-      placeholder: '请选用户权限',
+      placeholder: '请选账户权限',
       options: permissionOptions
     }
   }

@@ -46,9 +46,9 @@ export function generatorMenu(routerMap: Array<any>) {
     const currentMenu = {
       ...info,
       ...info.meta,
-      label: info.meta?.title,
+      label: info.meta?.title ?? item.meta?.title,
       key: info.name,
-      icon: isRoot ? item.meta?.icon : info.meta?.icon
+      icon: info.meta?.icon ?? item.meta?.icon
     }
     // 是否有子菜单，并递归处理
     if (info.children && info.children.length > 0) {

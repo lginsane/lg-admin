@@ -17,7 +17,7 @@
   }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
   .page-container {
     width: 100%;
     border-radius: 4px;

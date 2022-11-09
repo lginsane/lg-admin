@@ -1,4 +1,4 @@
-import { Layout } from '@/layout'
+import { Layout, BlankLayout } from '@/layout'
 import { renderIcon } from '@/hooks/icon'
 import {
   BookOutline,
@@ -13,7 +13,7 @@ export const BlogRouters = [
     path: '/blog',
     name: 'Blog',
     component: Layout,
-    redirect: '/blog/user',
+    redirect: '/blog/mine',
     meta: {
       title: '博客',
       icon: renderIcon(BookOutline)
@@ -40,11 +40,44 @@ export const BlogRouters = [
       {
         path: '/blog/article',
         name: 'Article',
-        component: () => import('@/views/blog/article/index.vue'),
+        component: BlankLayout,
+        redirect: '/blog/article/list',
         meta: {
           title: '文章',
           icon: renderIcon(DocumentTextSharp)
-        }
+        },
+        children: [
+          {
+            path: '/blog/article/list',
+            name: 'ArticleList',
+            component: () => import('@/views/blog/article/index.vue'),
+            meta: {
+              title: '文章',
+              icon: renderIcon(DocumentTextSharp),
+              breadcrumb: false
+            }
+          },
+          {
+            path: '/blog/article/add',
+            name: 'ArticleAdd',
+            component: () => import('@/views/blog/article/views/article-add.vue'),
+            meta: {
+              title: '添加',
+              hidden: true,
+              activeMenu: 'ArticleList'
+            }
+          },
+          {
+            path: '/blog/article/update/:id',
+            name: 'ArticleUpdate',
+            component: () => import('@/views/blog/article/views/article-update.vue'),
+            meta: {
+              title: '编辑',
+              hidden: true,
+              activeMenu: 'ArticleList'
+            }
+          }
+        ]
       },
       {
         path: '/blog/tag',
