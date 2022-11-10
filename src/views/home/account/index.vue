@@ -80,6 +80,7 @@
   // 弹窗
   const title = ref('')
   const showModal = ref(false)
+  const formRef = ref()
   const formBtnLoading = ref(false)
   const formModel = ref<AccountItem>({
     id: undefined,
@@ -126,10 +127,27 @@
   }
   function onAdd() {
     console.log('添加')
+
     showModal.value = true
     title.value = '添加'
   }
   function confirmForm() {}
+  function cancelForm() {
+    // 初始化
+    formModel.value = {
+      id: undefined,
+      account: '',
+      nickname: '',
+      password: '',
+      sex: 1,
+      status: 1,
+      permission: 0,
+      createTime: '',
+      updateTime: ''
+    }
+    formRef.value.restoreValidation()
+    showModal.value = false
+  }
 </script>
 <template>
   <Page class="account-container" :card-option="pageCardOption">
@@ -143,10 +161,16 @@
         bordered
       >
       </Table>
-      <n-modal v-model:show="showModal" :show-icon="false" :title="title" preset="dialog">
+      <n-modal
+        v-model:show="showModal"
+        :show-icon="false"
+        :title="title"
+        preset="dialog"
+        :on-after-leave="cancelForm"
+      >
         <n-form
           ref="formRef"
-          :model="formModel"
+          v-model:value="formModel"
           :rules="formRules"
           label-placement="left"
           :label-width="80"
@@ -156,11 +180,17 @@
             <n-input v-model:value="formModel.account" placeholder="请输入账户" clearable />
           </n-form-item>
           <n-form-item label="昵称" path="nickname">
-            <n-input v-model:value="formModel.nickname" placeholder="请输入昵称" clearable />
+            <n-input
+              v-model:value="formModel.nickname"
+              :input-props="{ autocomplete: 'off' }"
+              placeholder="请输入昵称"
+              clearable
+            />
           </n-form-item>
           <n-form-item label="密码" path="password">
             <n-input
               v-model:value="formModel.password"
+              :input-props="{ autocomplete: 'new-password' }"
               type="password"
               placeholder="请输入密码"
               show-password-on="click"
@@ -195,7 +225,7 @@
 
         <template #action>
           <n-space>
-            <n-button @click="() => (showModal = false)">取消</n-button>
+            <n-button @click="cancelForm">取消</n-button>
             <n-button type="info" :loading="formBtnLoading" @click="confirmForm">确定</n-button>
           </n-space>
         </template>
