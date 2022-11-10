@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { pageCardOption, SearchSchemas, tableColumns } from './constant/index'
-  import { getPageList } from '@/api/blog/article'
+  import { getPageList, remove } from '@/api/blog/article'
   import { APIProps } from '@/components/Table/types/index'
   import TableAction from '@/components/Table/components/TableAction.vue'
 
@@ -34,7 +34,9 @@
             type: 'error',
             isConfirm: true,
             onConfirm: () => {
-              console.log(`删除: ${row.id}`)
+              remove(row.id).then(() => {
+                ;(window as any).$message.success('删除成功')
+              })
             }
           }
         ]
