@@ -1,0 +1,33 @@
+.global-layout {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+
+  .n-layout-scroll-container {
+    overflow-y: auto;
+  }
+
+  .global-header {
+    height: $LayoutHeaderHeight;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+    position: relative;
+    z-index: 2;
+  }
+
+  .main-layout {
+    width: 100%;
+    height: calc(100% - $LayoutHeaderHeight);
+
+    .global-content {
+      flex: auto;
+      height: 100%;
+      background-color: #f7f7f7;
+      overflow: auto;
+    }
+  }
+}
