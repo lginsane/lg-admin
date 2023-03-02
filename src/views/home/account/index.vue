@@ -97,7 +97,7 @@
     account: {
       required: true,
       trigger: ['blur', 'input'],
-      message: '请输入账户'
+      message: '请输入用户'
     },
     nickname: {
       required: true,
@@ -176,8 +176,8 @@
           :label-width="80"
           style="padding: 1em 0"
         >
-          <n-form-item label="账户" path="account">
-            <n-input v-model:value="formModel.account" placeholder="请输入账户" clearable />
+          <n-form-item label="用户" path="account">
+            <n-input v-model:value="formModel.account" placeholder="请输入用户" clearable />
           </n-form-item>
           <n-form-item label="昵称" path="nickname">
             <n-input
@@ -232,7 +232,7 @@
       </n-modal>
     </template>
     <template #account-action>
-      <n-button type="primary" quaternary @click="onAdd">添加账户</n-button>
+      <n-button type="primary" quaternary @click="onAdd">添加用户</n-button>
     </template>
   </Page>
 </template>

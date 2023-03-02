@@ -55,7 +55,7 @@
 <template>
   <div class="login-wrapper">
     <div class="from-wrapper">
-      <h2 class="title">个人管理后台</h2>
+      <h2 class="title">博客管理后台</h2>
       <n-form ref="formRef" :model="formModel" :rules="formRules" label-placement="left">
         <n-form-item path="account" label="账号">
           <n-input v-model:value="formModel.account" @keydown.enter.prevent />
@@ -80,14 +80,16 @@
   .login-wrapper {
     width: 100%;
     height: 100%;
-    background-color: #f5f5f5;
+    // background-color: #f5f5f5;
+    background-image: url('https://cdn.stocksnap.io/img-thumbs/960w/work-desk_9DKMNK4GAG.jpg');
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     .from-wrapper {
       width: 500px;
       // height: 500px;
-      padding: 30px 20px;
+      padding: 30px 60px;
       background-color: #fff;
       box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
       .title {

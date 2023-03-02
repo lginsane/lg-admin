@@ -26,7 +26,7 @@ export const HomeRouters = [
         name: 'Account',
         component: () => import('@/views/home/account/index.vue'),
         meta: {
-          title: '账户',
+          title: '用户',
           icon: renderIcon(Person)
         }
       }

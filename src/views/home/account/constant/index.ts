@@ -41,7 +41,7 @@ export const permissionOptions = [
 // page cardOption
 export const pageCardOption: CardOptionItem[] = [
   {
-    title: '账户管理',
+    title: '用户管理',
     slotName: 'account',
     isCard: true,
     bordered: false
@@ -50,29 +50,29 @@ export const pageCardOption: CardOptionItem[] = [
 // search schemas
 export const SearchSchemas: SchemaItem[] = [
   {
-    label: '账户名称',
+    label: '用户名称',
     path: 'name',
     component: 'NInput',
     defaultValue: '',
     componentProps: {
-      placeholder: '请输入账户名称、昵称'
+      placeholder: '请输入用户名称、昵称'
     }
   },
   {
-    label: '账户状态',
+    label: '用户状态',
     path: 'status',
     component: 'NSelect',
     componentProps: {
-      placeholder: '请选账户状态',
+      placeholder: '请选用户状态',
       options: statusOptions
     }
   },
   {
-    label: '账户权限',
+    label: '用户权限',
     path: 'permission',
     component: 'NSelect',
     componentProps: {
-      placeholder: '请选账户权限',
+      placeholder: '请选用户权限',
       options: permissionOptions
     }
   }
@@ -80,7 +80,7 @@ export const SearchSchemas: SchemaItem[] = [
 // table columns
 export const tableColumns: DataTableColumn[] = [
   {
-    title: '账户',
+    title: '用户',
     key: 'account'
   },
   {

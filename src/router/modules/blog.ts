@@ -13,30 +13,30 @@ export const BlogRouters = [
     path: '/blog',
     name: 'Blog',
     component: Layout,
-    redirect: '/blog/mine',
+    redirect: '/blog/article',
     meta: {
       title: '博客',
       icon: renderIcon(BookOutline)
     },
     children: [
-      {
-        path: '/blog/mine',
-        name: 'Mine',
-        component: () => import('@/views/blog/mine/index.vue'),
-        meta: {
-          title: '个人资料',
-          icon: renderIcon(AccessibilitySharp)
-        }
-      },
-      {
-        path: '/blog/user',
-        name: 'User',
-        component: () => import('@/views/blog/user/index.vue'),
-        meta: {
-          title: '用户',
-          icon: renderIcon(People)
-        }
-      },
+      // {
+      //   path: '/blog/mine',
+      //   name: 'Mine',
+      //   component: () => import('@/views/blog/mine/index.vue'),
+      //   meta: {
+      //     title: '个人资料',
+      //     icon: renderIcon(AccessibilitySharp)
+      //   }
+      // },
+      // {
+      //   path: '/blog/user',
+      //   name: 'User',
+      //   component: () => import('@/views/blog/user/index.vue'),
+      //   meta: {
+      //     title: '用户',
+      //     icon: renderIcon(People)
+      //   }
+      // },
       {
         path: '/blog/article',
         name: 'Article',

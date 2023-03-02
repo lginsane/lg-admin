@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { PersonCircleSharp } from '@vicons/ionicons5'
+  // import { PersonCircleSharp } from '@vicons/ionicons5'
   import { useDialog, useMessage } from 'naive-ui'
   import { useUserStoreWidthOut } from '@/store/modules/user'
 
@@ -58,9 +58,10 @@
   <div class="header-user">
     <n-dropdown trigger="hover" :options="avatarOptions" @select="avatarSelect">
       <div class="header-avatar">
-        <n-icon size="34">
+        <!-- <n-icon size="34">
           <PersonCircleSharp />
-        </n-icon>
+        </n-icon> -->
+        <img class="avatar" src="https://lginsane.github.io/images/avatar.jpeg" alt="" />
         {{ username }}
       </div>
     </n-dropdown>
@@ -74,6 +75,14 @@
       display: flex;
       align-items: center;
       font-size: 16px;
+      cursor: pointer;
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 6px;
+      }
     }
   }
 </style>
