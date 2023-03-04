@@ -85,6 +85,7 @@
   const formModel = ref<AccountItem>({
     id: undefined,
     account: '',
+    avatar: '',
     nickname: '',
     password: '',
     sex: 1,
@@ -137,6 +138,7 @@
     formModel.value = {
       id: undefined,
       account: '',
+      avatar: '',
       nickname: '',
       password: '',
       sex: 1,
@@ -152,7 +154,11 @@
 <template>
   <Page class="account-container" :card-option="pageCardOption">
     <template #account>
-      <SearchTable :schemas="SearchSchemas" @submit="onSubmit"></SearchTable>
+      <SearchTable
+        :schemas="SearchSchemas"
+        :show-advanced-button="false"
+        @submit="onSubmit"
+      ></SearchTable>
       <Table
         ref="accountTableRef"
         :api-props="tableApiProps"

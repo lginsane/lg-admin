@@ -46,17 +46,17 @@
       {
         name: 'pv',
         type: 'line',
-        data: [15, 23, 12, 31, 9]
+        data: [1, 1, 1, 1, 1]
       },
       {
         name: 'uv',
         type: 'line',
-        data: [3, 7, 4, 8, 2]
+        data: [1, 1, 1, 1, 1]
       },
       {
         name: 'ip',
         type: 'line',
-        data: [3, 7, 4, 8, 2]
+        data: [1, 1, 1, 1, 1]
       }
     ]
   }

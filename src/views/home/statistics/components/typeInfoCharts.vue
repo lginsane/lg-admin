@@ -35,18 +35,8 @@
     // const res = await queryStatisticsTypeInfo()
     ;(option.series as any)[0].data = [
       {
-        id: 3,
-        name: '总结',
-        value: 2
-      },
-      {
-        id: 4,
-        name: '入门知识',
-        value: 2
-      },
-      {
-        id: 5,
-        name: '工具',
+        id: 1,
+        name: '测试分类',
         value: 1
       }
     ]

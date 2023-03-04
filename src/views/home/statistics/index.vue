@@ -64,11 +64,11 @@
       avatar: 'https://lginsane.github.io/images/avatar.jpeg'
     },
     basicInfo: {
-      articleNum: 5,
+      articleNum: 1,
       draftNum: 0,
       leaveMsgNum: 1,
       // friendLinkNum: 0,
-      userNum: 0
+      userNum: 2
     },
     keyMap: {
       articleNum: '文章数量',

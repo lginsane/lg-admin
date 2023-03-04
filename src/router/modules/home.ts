@@ -1,6 +1,6 @@
 import { Layout } from '@/layout'
 import { renderIcon } from '@/hooks/icon'
-import { HomeOutline, BarChart, Person } from '@vicons/ionicons5'
+import { HomeOutline, BarChart, Person, ChatboxEllipsesSharp } from '@vicons/ionicons5'
 export const HomeRouters = [
   {
     path: '/home',
@@ -28,6 +28,15 @@ export const HomeRouters = [
         meta: {
           title: '用户',
           icon: renderIcon(Person)
+        }
+      },
+      {
+        path: '/home/comment',
+        name: 'Comment',
+        component: () => import('@/views/home/comment/index.vue'),
+        meta: {
+          title: '评论',
+          icon: renderIcon(ChatboxEllipsesSharp)
         }
       }
     ]

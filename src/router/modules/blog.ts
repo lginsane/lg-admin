@@ -80,21 +80,21 @@ export const BlogRouters = [
         ]
       },
       {
-        path: '/blog/tag',
-        name: 'Tag',
-        component: () => import('@/views/blog/tag/index.vue'),
-        meta: {
-          title: '标签',
-          icon: renderIcon(Pricetags)
-        }
-      },
-      {
         path: '/blog/type',
         name: 'Type',
         component: () => import('@/views/blog/type/index.vue'),
         meta: {
           title: '分类',
           icon: renderIcon(Grid)
+        }
+      },
+      {
+        path: '/blog/tag',
+        name: 'Tag',
+        component: () => import('@/views/blog/tag/index.vue'),
+        meta: {
+          title: '标签',
+          icon: renderIcon(Pricetags)
         }
       }
     ]

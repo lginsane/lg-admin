@@ -1,6 +1,6 @@
 import { SchemaItem } from '@/components/SearchTable/types/index'
 import { CardOptionItem } from '@/components/Page/types/index'
-import { DataTableColumn, NTag } from 'naive-ui'
+import { DataTableColumn, NTag, NImage } from 'naive-ui'
 import { valueConversionLabel } from '@/utils/index'
 
 // 状态
@@ -92,6 +92,20 @@ export const tableColumns: DataTableColumn[] = [
     key: 'sex',
     render: row => {
       return valueConversionLabel(row.sex, sexOptions)
+    }
+  },
+  {
+    title: '头像',
+    key: 'avatar',
+    render: row => {
+      return h(NImage as any, {
+        src: row.avatar,
+        style: {
+          width: '30px',
+          height: '30px',
+          borderRadius: '50%'
+        }
+      })
     }
   },
   {

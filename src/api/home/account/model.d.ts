@@ -1,6 +1,7 @@
 export interface AccountItem {
   id?: number // ID
   account: string // 账户
+  avatar: string // 头像
   nickname: string // 昵称
   password?: string // 密码
   sex: 0 | 1 // 性别 0: 女 1: 男
