@@ -3,6 +3,7 @@ import App from './App.vue'
 import { setupRouter } from '@/router'
 import { setupCustomComponents, setupNaive } from '@/components/index'
 import { setupStore } from '@/store/index'
+import * as echarts from 'echarts'
 import Application from '@/components/Application/index.vue'
 
 import '@/styles/index.scss'
@@ -10,6 +11,7 @@ import '@/styles/index.scss'
 async function bootstrap() {
   const application = createApp(Application)
   const app = createApp(App)
+  app.config.globalProperties.$echarts = echarts
   // 注册Naive组件
   setupNaive(app)
   // 注册全局自定义组件

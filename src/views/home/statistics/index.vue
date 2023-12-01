@@ -15,7 +15,10 @@
           <b class="ip-time">{{ data.currentDate }}</b>
           <span class="ip-address">IP地址: {{ data.ip }}</span>
         </div>
-        <div class="other hBox">虚位以待</div>
+        <div class="other hBox">
+          <div>相识时间：{{ state.dDay }}天 {{ state.dHour }}小时 {{ state.dMinute }}分钟</div>
+          <div>恋爱时间：{{ state.lDay }}天 {{ state.lHour }}小时 {{ state.lMinute }}分钟</div>
+        </div>
       </div>
       <div class="dashboard-md">
         <div v-for="(item, key) in data.basicInfo" :key="key" class="statictis hBox">
@@ -37,7 +40,6 @@
         </div>
       </div>
     </div>
-    <!-- <div>已相识时间：{{ state.dDay }}天 {{ state.dHour }}小时 {{ state.dMinute }}分钟</div> -->
   </page>
 </template>
 
@@ -125,19 +127,26 @@
 
   data.currentDate = dayjs(new Date()).format('YYYY-MM-DD')
 
-  // const startTime = ref(new Date('2022-07-20 16:03').getTime())
-  // const endTime = ref(new Date().getTime())
-  // const state = reactive({
-  //   dDay: Math.floor((endTime.value - startTime.value) / 1000 / 3600 / 24),
-  //   dHour: Math.floor((endTime.value - startTime.value) / 1000 / 3600) % 24,
-  //   dMinute: Math.floor((endTime.value - startTime.value) / 1000 / 60) % 60
-  // })
-  // setTimeout(() => {
-  //   endTime.value = new Date().getTime()
-  //   state.dDay = Math.floor((endTime.value - startTime.value) / 1000 / 3600 / 24)
-  //   state.dHour = Math.floor((endTime.value - startTime.value) / 1000 / 3600 / 24)
-  //   state.dMinute = Math.floor((endTime.value - startTime.value) / 1000 / 60) % 60
-  // }, 1000)
+  const startTime = ref(new Date('2023-05-15 14:02').getTime())
+  const loveStartTime = ref(new Date('2023-09-17 00:00').getTime())
+  const endTime = ref(new Date().getTime())
+  const state = reactive({
+    dDay: Math.floor((endTime.value - startTime.value) / 1000 / 3600 / 24),
+    dHour: Math.floor((endTime.value - startTime.value) / 1000 / 3600) % 24,
+    dMinute: Math.floor((endTime.value - startTime.value) / 1000 / 60) % 60,
+    lDay: Math.floor((endTime.value - loveStartTime.value) / 1000 / 3600 / 24),
+    lHour: Math.floor((endTime.value - loveStartTime.value) / 1000 / 3600) % 24,
+    lMinute: Math.floor((endTime.value - loveStartTime.value) / 1000 / 60) % 60
+  })
+  setTimeout(() => {
+    endTime.value = new Date().getTime()
+    state.dDay = Math.floor((endTime.value - startTime.value) / 1000 / 3600 / 24)
+    state.dHour = Math.floor((endTime.value - startTime.value) / 1000 / 3600) % 24
+    state.dMinute = Math.floor((endTime.value - startTime.value) / 1000 / 60) % 60
+    state.lDay = Math.floor((endTime.value - loveStartTime.value) / 1000 / 3600 / 24)
+    state.lHour = Math.floor((endTime.value - loveStartTime.value) / 1000 / 3600) % 24
+    state.lMinute = Math.floor((endTime.value - loveStartTime.value) / 1000 / 60) % 60
+  }, 1000)
 </script>
 
 <style lang="scss" scoped>
